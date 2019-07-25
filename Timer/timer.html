@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>countdown timer</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="js/jquery.countdown.js"></script>
+    <link rel="stylesheet" href="css/jquery.countdown.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript">
+        $(function(){
+            var note = $('#note'),
+                ts = new Date(2019 , 0 , 1),
+                newYear = true;
+            if ((new Date())>ts){
+                ts =(new Date()).getTime() + 10*24*60*60*1000;
+                newYear = false;
+            }
+            $('#countdown').countdown({
+                timestamp:ts,
+                callback:function (days,hours,minutes,seconds) {
+                    var message = "";
+                    message += days + "day" +(days === 1 ? '':'s') + ",";
+                    message += hours + "hour" +(hours === 1 ? '':'s') + ",";
+                    message += minutes + "minute" +(minutes === 1 ? '':'s') + " and ";
+                    message += seconds + "second" +(seconds === 1 ? '':'s') + " </br> ";
+                    if (newYear){
+                        message += "<p class='txt1'>left untill the new year!</p>";
+                    }
+                    else{
+                        message += "<p class='txt2'>left to 10 days from now!</p>";
+                    }
+                    note.html(message);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="countdown"></div>
+    <p id="note"></p>
+</body>
+</html>
