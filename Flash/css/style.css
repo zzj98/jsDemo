@@ -19,9 +19,12 @@ html,body{
     transform-style: preserve-3d;
 }
 .sub-wrap{
+    /*整体的容器*/
+    background-color: #37083a;
     transform-style: preserve-3d;
-    width: 300px;
-    height: 300px;
+    width: 100px;
+    height: 100px;
+    /*球的宽高*/
     position: relative;
     animation: rotate3d 10s linear infinite;
 }
@@ -37,15 +40,16 @@ html,body{
 }
 .box{
     transform-style: preserve-3d;
-    height: 150px;
+    height: 50px;
     position: absolute;
     transform-origin: 0 0 ;
     left: 50%;
     top: 50%;
 }
 .ball{
-    width: 6px;
-    height: 6px;
+    width: 3px;
+    height: 3px;
+    /*点的宽高*/
     border-radius: 50%;
     position: absolute;
     left: -3px;
